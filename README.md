@@ -2,7 +2,7 @@
 A quick, unsupervised, content-based recommendation system.
 
 ## Introduction
-I was looking into recommendation systems a while ago and just came up with this quick way of creating a recommendation system. It'll create a nearest-neighbors graph and use it to assign probability values to what each user might like or not and recommend based on those probabilities. Some of the ideas such as diversification using K-Means++ came from Yum-Me <a href"#yangetalyumme">[1]</a>.
+I was looking into recommendation systems a while ago and just came up with this quick way of creating a recommendation system. It'll create a nearest-neighbors graph and use it to assign probability values to what each user might like or not and recommend based on those probabilities. Some of the ideas such as diversification using K-Means++ came from Yum-Me <a href="#yangetalyumme">[1]</a>.
 
 ## Dependencies
 - Python (>= 3.6)
