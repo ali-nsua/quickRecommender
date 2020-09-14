@@ -3,7 +3,7 @@ import numpy as np
 
 class NearestNeighbors:
     def __init__(self, n_samples, n_neighbors=50):
-        assert n_samples <= n_neighbors
+        assert n_samples >= n_neighbors
         self.neighbors = np.zeros((n_samples, n_neighbors), dtype=int)
         self.similarities = np.zeros((n_samples, n_neighbors), dtype=float)
 
