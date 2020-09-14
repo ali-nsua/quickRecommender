@@ -18,7 +18,7 @@ def cosine_similarity(X, Y=None):
     """
     X_normalized = normalize(X)
     if Y is None:
-        return ((1 + np.dot(X_normalized, X_normalized.T)) / 2), X_normalized
+        return ((1 + np.dot(X_normalized, X_normalized.T)) / 2)
     Y_normalized = normalize(Y)
     K = np.dot(X_normalized, Y_normalized.T)
     return (1 + K) / 2
