@@ -81,7 +81,7 @@ class QuickRecommender:
             user_vector = np.array(user_vector)
 
         for s in selections:
-            neighbors = self._nn_graph.neighbors[s, :]
+            neighbors = list(self._nn_graph.neighbors[s, :])
             user_vector[neighbors] = np.max([user_vector[neighbors], self._nn_graph.similarities[s, :]], axis=0)
 
         return user_vector

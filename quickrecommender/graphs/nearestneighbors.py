@@ -18,4 +18,4 @@ class NearestNeighbors:
         rows = [i for i in range(n_samples) for j in range(n_neighbors)]
         cols = self.neighbors.ravel()
 
-        self.similarities = similarities[rows, cols]
+        self.similarities = similarities[rows, cols].reshape(self.neighbors.shape)
