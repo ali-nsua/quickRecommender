@@ -23,9 +23,9 @@ class QuickRecommender:
         self._nn_graph = None
         self._n_neighbors = n_neighbors
 
-        if type(metric, callable):
+        if type(metric) is callable:
             self.similarity_fn = metric
-        elif type(metric, str):
+        elif type(metric) is str:
             if metric == 'cosine':
                 self.similarity_fn = cosine_similarity
             else:
