@@ -27,3 +27,7 @@ def cosine_similarity(X, Y=None):
 def softmax(x):
     expx = np.exp(x)
     return expx / np.sum(expx)
+
+
+def divsum(x):
+    return x / np.sum(x)

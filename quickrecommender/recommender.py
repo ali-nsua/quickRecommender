@@ -1,6 +1,6 @@
 import numpy as np
 from .utils.diversifier import kmeanspp
-from .utils.ops import cosine_similarity, softmax
+from .utils.ops import cosine_similarity, softmax, divsum
 from .graphs.nearestneighbors import NearestNeighbors
 
 
@@ -33,6 +33,9 @@ class QuickRecommender:
         else:
             raise RuntimeError('Metric of type {} not supported.'.format(type(metric)))
 
+    def get_nn_graph(self):
+        return self._nn_graph
+
     def fit(self, input_data):
         """
         Creates the nearest-neighbors graph and stores it
@@ -57,9 +60,9 @@ class QuickRecommender:
         if type(user_vector) is list:
             user_vector = np.array(user_vector)
 
-        n_init = min(n_recommendations * 3, self._n_samples)
+        n_init = min(int(n_recommendations * 1.5), self._n_samples)
 
-        initial_recommendations_idx = np.random.choice(self._n_samples, n_init, replace=False, p=softmax(user_vector))
+        initial_recommendations_idx = np.random.choice(self._n_samples, n_init, replace=False, p=divsum(user_vector))
         diversified_idx = kmeanspp(self._input_data[initial_recommendations_idx, :], n_recommendations)
 
         return initial_recommendations_idx[diversified_idx]
